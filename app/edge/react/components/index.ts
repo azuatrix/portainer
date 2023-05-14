@@ -9,6 +9,7 @@ import { EdgeAsyncIntervalsForm } from '@/react/edge/components/EdgeAsyncInterva
 import { EdgeStackDeploymentTypeSelector } from '@/react/edge/edge-stacks/components/EdgeStackDeploymentTypeSelector';
 import { withUIRouter } from '@/react-tools/withUIRouter';
 import { EdgeGroupAssociationTable } from '@/react/edge/components/EdgeGroupAssociationTable';
+import { AssociatedEdgeEnvironmentsSelector } from '@/react/edge/components/AssociatedEdgeEnvironmentsSelector';
 
 export const componentsModule = angular
   .module('portainer.edge.react.components', [])
@@ -73,5 +74,13 @@ export const componentsModule = angular
       'title',
       'data-cy',
       'hideEnvironmentIds',
+    ])
+  )
+  .component(
+    'associatedEdgeEnvironmentsSelector',
+    r2a(withReactQuery(AssociatedEdgeEnvironmentsSelector), [
+      'onAssociate',
+      'onDissociate',
+      'value',
     ])
   ).name;
