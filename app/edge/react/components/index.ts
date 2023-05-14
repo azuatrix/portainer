@@ -8,6 +8,7 @@ import { EdgeScriptForm } from '@/react/edge/components/EdgeScriptForm';
 import { EdgeAsyncIntervalsForm } from '@/react/edge/components/EdgeAsyncIntervalsForm';
 import { EdgeStackDeploymentTypeSelector } from '@/react/edge/edge-stacks/components/EdgeStackDeploymentTypeSelector';
 import { withUIRouter } from '@/react-tools/withUIRouter';
+import { EdgeGroupAssociationTable } from '@/react/edge/components/EdgeGroupAssociationTable';
 
 export const componentsModule = angular
   .module('portainer.edge.react.components', [])
@@ -61,5 +62,16 @@ export const componentsModule = angular
       'hasDockerEndpoint',
       'hasKubeEndpoint',
       'allowKubeToSelectCompose',
+    ])
+  )
+  .component(
+    'edgeGroupAssociationTable',
+    r2a(withReactQuery(EdgeGroupAssociationTable), [
+      'emptyContentLabel',
+      'onClickRow',
+      'query',
+      'title',
+      'data-cy',
+      'hideEnvironmentIds',
     ])
   ).name;
