@@ -7,9 +7,6 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
-// BucketName represents the name of the bucket where this service stores data.
-const BucketName = "endpoint_relations"
-
 // Service represents a service for managing environment(endpoint) relation data.
 type Service struct {
 	connection      portainer.Connection
@@ -35,13 +32,6 @@ func NewService(connection portainer.Connection) (*Service, error) {
 	return &Service{
 		connection: connection,
 	}, nil
-}
-
-func (service *Service) Tx(tx portainer.Transaction) ServiceTx {
-	return ServiceTx{
-		service: service,
-		tx:      tx,
-	}
 }
 
 // EndpointRelations returns an array of all EndpointRelations

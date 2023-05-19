@@ -23,13 +23,6 @@ func NewService(connection portainer.Connection) (*Service, error) {
 	}, nil
 }
 
-func (service *Service) Tx(tx portainer.Transaction) ServiceTx {
-	return ServiceTx{
-		service: service,
-		tx:      tx,
-	}
-}
-
 // EdgeJobs returns a list of Edge jobs
 func (service *Service) EdgeJobs() ([]portainer.EdgeJob, error) {
 	var edgeJobs = make([]portainer.EdgeJob, 0)

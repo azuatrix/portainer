@@ -38,13 +38,6 @@ func NewService(connection portainer.Connection) (*Service, error) {
 	return s, nil
 }
 
-func (service *Service) Tx(tx portainer.Transaction) ServiceTx {
-	return ServiceTx{
-		service: service,
-		tx:      tx,
-	}
-}
-
 // Endpoint returns an environment(endpoint) by ID.
 func (service *Service) Endpoint(ID portainer.EndpointID) (*portainer.Endpoint, error) {
 	var obj portainer.Endpoint

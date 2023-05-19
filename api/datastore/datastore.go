@@ -43,10 +43,6 @@ func (store *Store) Open() (newStore bool, err error) {
 		return false, err
 	}
 
-	// TODO: check if settings exists, if not, init or leave it as is
-	// Init auto migrates tables if needed
-	//store.connection.Init()
-
 	err = store.initServices()
 	if err != nil {
 		return false, err

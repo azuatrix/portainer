@@ -4,6 +4,7 @@ import (
 	"sync"
 
 	portainer "github.com/portainer/portainer/api"
+	"gorm.io/gorm"
 )
 
 // BucketName represents the name of the bucket where this service stores data.
@@ -43,13 +44,6 @@ func NewService(connection portainer.Connection, cacheInvalidationFn func(portai
 	}
 
 	return s, nil
-}
-
-func (service *Service) Tx(tx portainer.Transaction) ServiceTx {
-	return ServiceTx{
-		service: service,
-		tx:      tx,
-	}
 }
 
 // EdgeStacks returns an array containing all edge stacks
@@ -102,8 +96,9 @@ func (service *Service) UpdateEdgeStackFunc(ID portainer.EdgeStackID, updateFunc
 }
 
 // UpdateEdgeStackFuncTx is a helper function used to call UpdateEdgeStackFunc inside a transaction.
-func (service *Service) UpdateEdgeStackFuncTx(tx portainer.Transaction, ID portainer.EdgeStackID, updateFunc func(edgeStack *portainer.EdgeStack)) error {
-	return service.Tx(tx).UpdateEdgeStackFunc(ID, updateFunc)
+func (service *Service) UpdateEdgeStackFuncTx(tx *gorm.DB, ID portainer.EdgeStackID, updateFunc func(edgeStack *portainer.EdgeStack)) error {
+	// return service.Tx(tx).UpdateEdgeStackFunc(ID, updateFunc)
+	return nil
 }
 
 // DeleteEdgeStack deletes an Edge stack.

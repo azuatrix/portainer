@@ -23,13 +23,6 @@ func NewService(connection portainer.Connection) (*Service, error) {
 	}, nil
 }
 
-func (service *Service) Tx(tx portainer.Transaction) ServiceTx {
-	return ServiceTx{
-		service: service,
-		tx:      tx,
-	}
-}
-
 // EdgeGroups return a slice containing all the Edge groups.
 func (service *Service) EdgeGroups() ([]portainer.EdgeGroup, error) {
 	var groups []portainer.EdgeGroup
