@@ -21,9 +21,10 @@ export function TextTip({
   childrenWrapperClassName = 'text-muted',
 }: PropsWithChildren<Props>) {
   return (
-    <div className={clsx('small inline-flex gap-1', className)}>
-      <Icon icon={icon} mode={getMode(color)} className="!mt-[2px]" />
-
+    <div className={clsx('small inline-flex gap-1 !align-top', className)}>
+      <div className="icon icon-sm">
+        <Icon icon={icon} mode={getMode(color)} className="!mt-[2px]" />
+      </div>
       <span className={childrenWrapperClassName}>{children}</span>
     </div>
   );

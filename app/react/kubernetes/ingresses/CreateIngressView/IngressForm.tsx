@@ -191,7 +191,7 @@ export function IngressForm({
                     options={ingressClassOptions}
                   />
                   {errors.className && (
-                    <FormError className="error-inline mt-1">
+                    <FormError className="error-inline">
                       {errors.className}
                     </FormError>
                   )}
@@ -370,9 +370,11 @@ export function IngressForm({
                       </div>
                     </div>
 
-                    <p className="vertical-center text-muted small col-sm-12 whitespace-nowrap !p-0">
-                      <Icon icon={Info} mode="primary" size="md" />
-                      <span>
+                    <div className="text-muted col-sm-12 !inline-flex gap-1 !p-0 align-top text-xs">
+                      <div>
+                        <Icon icon={Info} mode="primary" size="sm" />
+                      </div>
+                      <div>
                         Add a secret via{' '}
                         <Link
                           to="kubernetes.configurations"
@@ -385,8 +387,8 @@ export function IngressForm({
                         {', '}
                         then select &apos;Reload TLS secrets&apos; above to
                         populate the dropdown with your changes.
-                      </span>
-                    </p>
+                      </div>
+                    </div>
                   </div>
                 )}
                 {host.NoHost && (
