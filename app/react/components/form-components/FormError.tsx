@@ -18,7 +18,7 @@ export function FormError({ children, className }: PropsWithChildren<Props>) {
     >
       <div>
         <Icon
-          className="!h-[14px] !w-[14px] !text-xs"
+          className="flex-none"
           icon={AlertTriangle}
           mode="warning"
           size="sm"
