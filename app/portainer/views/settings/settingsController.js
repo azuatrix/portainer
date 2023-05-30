@@ -14,6 +14,7 @@ angular.module('portainer.app').controller('SettingsController', [
     $scope.customBannerFeatureId = FeatureId.CUSTOM_LOGIN_BANNER;
     $scope.s3BackupFeatureId = FeatureId.S3_BACKUP_SETTING;
     $scope.enforceDeploymentOptions = FeatureId.ENFORCE_DEPLOYMENT_OPTIONS;
+    $scope.requireNoteOnApplications = FeatureId.K8S_REQUIRE_NOTE_ON_APPLICATIONS;
 
     $scope.backupOptions = options;
 
